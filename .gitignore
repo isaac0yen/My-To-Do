@@ -1,0 +1,49 @@
+# Node dependencies
+node_modules/
+
+# Server-specific files
+Server/eng.traineddata
+Server/node_modules/
+Server/.env
+
+# Client-specific files
+Client/node_modules/
+Client/build/
+
+# Log files
+*.log
+
+# User-specific files
+.DS_Store
+Thumbs.db
+
+# Compiled binary files
+*.pyc
+
+# macOS metadata
+._*
+
+# Windows thumbnail cache files
+Thumbs.db
+
+# Visual Studio Code settings
+.vscode/
+
+# IDE-specific files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Temporary files
+*.swp
+*.bak
+*.tmp
+
+# Ignore generated files
+dist/
+.z.txt
+server/eng.traineddata
+server/.env
+test.html

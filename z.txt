@@ -1,0 +1,39 @@
+createEntry();
+getAllEntries();
+updateEntry();
+deleteEntry();
+
+createCategory();
+getAllCategory();
+updateCategory();
+deleteCategory();
+
+
+entry = {
+  title,
+  date,
+  time,
+  timeStop: { conditional },// Add a "Radio" to the front end to signify wheether or not.
+  Note,
+  Category,
+}
+
+
+
+
+const resolvers = {
+  Query: {
+
+  },
+  Mutation: {
+    createEntry: (_, { title, date, time, timeStop, Note, Category, }) => {
+
+    }
+  }
+};
+
+export default resolvers;
+
+
+
+There's a table for notifications and that is what the cronjob  is communicating with.
