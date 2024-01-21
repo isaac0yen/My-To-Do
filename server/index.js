@@ -8,9 +8,6 @@ import { config } from 'dotenv';
 
 config();
 
-console.log(process.env.DB_NAME + ' ' + process.env.DB_URI)
-
-
   const db = await new MongoDBWrapper(process.env.DB_URI, process.env.DB_NAME);
   await db.connect();
   console.log('Connected to MongoDB!');
@@ -25,3 +22,6 @@ console.log(process.env.DB_NAME + ' ' + process.env.DB_URI)
   });
 
   console.log(`🚀  Server ready at: ${url}`);
+
+
+export default db

@@ -6,7 +6,7 @@ const Validate = {
     integer: value => Number.isInteger(value),
     positiveInteger: value => Number.isInteger(value) && value >= 0,
     string: value => typeof value === 'string' && value.trim() !== '',
-    array: value => Array.isArray(value) && value.length > 0,
+    array: value => Array.isArray(value) && value.length > -1,
     object: value => typeof value === 'object' && value !== null && Object.keys(value).length > 0,
     formatPhone: (phone) => {
         let inputString = phone.split(' ').join('')

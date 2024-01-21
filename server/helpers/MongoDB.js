@@ -2,16 +2,13 @@ import { MongoClient, ObjectId } from 'mongodb';
 
 class MongoDBWrapper {
   constructor(connectionString, dbName) {
-    this.client = new MongoClient(connectionString, { useNewUrlParser: true});
+    this.client = new MongoClient(connectionString);
     this.dbName = dbName;
   }
 
   async connect() {
     console.log('attempting to connect')
-    await this.client.connect().then(()=>{
-
-      console.log('attempting to bleh')
-    });
+    await this.client.connect();
     this.db = this.client.db(this.dbName);
   }
 
