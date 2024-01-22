@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 
 const client = new ApolloClient({
-  uri: 'https://flyby-router-demo.herokuapp.com/',
+  uri: 'http://localhost:4000/',
   cache: new InMemoryCache(),
 });
 

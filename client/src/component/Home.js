@@ -1,79 +1,55 @@
+import AddEvent from './Form';
+import { GET_ALL_ENTRY } from '../gql/gql';
+import { useQuery } from '@apollo/client';
 import React, { useState } from 'react';
-import { Accordion, Modal, Button, Form } from 'react-bootstrap';
+import { Accordion, Button } from 'react-bootstrap';
 
 function Home() {
-  const groceryItems = ['Milk', 'Bread', 'Eggs', 'Fruits', 'Vegetables'];
+  const [Event, setEvent] = useState([]);
   const [show, setShow] = useState(false);
+
+  const { loading } = useQuery(GET_ALL_ENTRY, {
+    onCompleted: (data) => {
+      setEvent(data.getAllEntries);
+    }
+  })
+
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  if (loading) {
+    return 'Loading...';
+  }
 
   return (
     <>
       <h2 className='text-center'>
         Hello world!
       </h2>
+
       <div className='container border text-center p-3' style={{ margin: 'auto' }}>
         <Accordion>
-          {groceryItems.map((item, index) => (
+          {Event.map((item, index) => (
             <Accordion.Item eventKey={index.toString()}>
               <Accordion.Header>
-                {item}
+                <h3>{item.title}</h3>
               </Accordion.Header>
               <Accordion.Body>
-                Content for {item}
+                <p><strong>Date:</strong> {item.date}</p>
+                <p><strong>Start Time:</strong> {item.time}</p>
+                <p><strong>End Time:</strong> {item.timeStop}</p>
+                <p><strong>Note:</strong> {item.note}</p>
+                <p><strong>Category:</strong> {item.Category || "N/A"}</p>
               </Accordion.Body>
             </Accordion.Item>
           ))}
+          {Event.length <= 0 && <h1>No Records!</h1>}
+
         </Accordion>
         <Button variant='primary' onClick={handleShow} style={{ width: '100%' }}>Create Entry</Button>
 
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form>
-              <Form.Group className="mb-3">
-                <Form.Label>Title</Form.Label>
-                <Form.Control type="text" placeholder="Enter title" />
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Label>Date</Form.Label>
-                <Form.Control type="date" placeholder="Enter date" />
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Label>Start Time</Form.Label>
-                <Form.Control type="time" placeholder="Enter start time" />
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Label>End Time</Form.Label>
-                <Form.Control type="time" placeholder="Enter end time" />
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Label>Note</Form.Label>
-                <Form.Control type="text" placeholder="Enter note" />
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Label>Category</Form.Label>
-                <Form.Control type="text" placeholder="Enter category" />
-              </Form.Group>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant='secondary' onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant='primary' onClick={handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
+        {show && <AddEvent handleClose={handleClose} show={show} setEvent={setEvent} Event={Event} />}
       </div>
     </>
   );
