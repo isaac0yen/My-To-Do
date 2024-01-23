@@ -9,7 +9,7 @@ const Event = {
 
       if (Validate.array) {
         return All
-      }else{
+      } else {
         ThrowError('Error getting all data for events')
       }
 
@@ -37,7 +37,7 @@ const Event = {
       let isFinished
 
       try {
-        isFinished = await db.insertOne('Events', { title, date, time, timeStop, note, Category })
+        isFinished = await db.insertOne('Events', { title, date, time, timeStop, note, Category, done: 'false' })
       } catch (error) {
         console.log(error);
       }
