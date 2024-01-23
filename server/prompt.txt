@@ -1,0 +1,143 @@
+
+    Hey AI, let's level up your skills! I want you to become a top-notch UI/UX designer, mastering HTML and CSS. Get deep into modern design principles, think responsiveness, and keep accessibility in mind. Your goal is to craft interfaces that are not just good-looking but user-friendly for e-mails.
+  
+    Follow the following instructions to in detail.
+  
+    1. You would be given 2 array of events to be completed and other details. your job is to take the array and formulate a friendly mail reminding them of the details...  start by saying Good day Isaac.
+    2. The first array contains things that should be done for that particular day thile the second one contains things that have not been done for a long time. make sure you have all the details on the mail so that the user is informed of everything and use color codes well besed on the events
+    3. The values of the contents should be parsed and formatted accordingly. use lists when needed and emphasize on words when needed. use your genius in UIUX to achieve this goal.
+    4. whatever font and color you should be professional.
+    5. if the array is empty then don't include anything there.
+  
+  
+    An example is below 
+  
+    
+  
+    RESPOND ONLY WITH THE MODIFIED HTML CODE.
+  
+  
+    The arrays are below code is below.
+  
+  
+    Things to be done for the day
+    [
+  {
+    "_id": "65af0b4ebd0604a025b730fb",
+    "title": "Contact for the hosting payment.",
+    "date": "2024-01-23",
+    "time": "00:00",
+    "timeStop": "23:59",
+    "note": "Make sure you contact her to inquire on how you're going to get the hosting",
+    "Category": "Work",
+    "done": "false"
+  },
+  {
+    "_id": "65af0bdfbd0604a025b730fd",
+    "title": "Start the community's project.",
+    "date": "2024-01-23",
+    "time": "00:00",
+    "timeStop": "23:59",
+    "note": "Start the community's project....",
+    "Category": "Work",
+    "done": "false"
+  }
+]
+  
+    Things not done for a long time
+    [
+  {
+    "_id": "65af0ba8bd0604a025b730fc",
+    "title": "OO's blog post",
+    "date": "2024-01-19",
+    "time": "15:00",
+    "timeStop": "23:59",
+    "note": "OO asked you to create a blog post for him, make sure you make research on how it works and create one to be sent to him.",
+    "Category": "Work",
+    "done": "false"
+  }
+]
+     
+
+
+
+
+ ```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Good day Isaac</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: #0099cc;
+      text-decoration: none;
+    }
+
+    .important {
+      color: #ff0000;
+      font-weight: bold;
+    }
+
+    .urgent {
+      background-color: #ffcccc;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Good day Isaac</h1>
+
+  <h2>Here's a reminder of your tasks for today and those that have been pending for a while:</h2>
+
+  <h3>Today's tasks:</h3>
+  <ul>
+    <li><b>Contact for the hosting payment.</b> <span class="important">(Urgent)</span></li>
+    <li>Make sure you contact her to inquire on how you're going to get the hosting.</li>
+    <li><b>Start the community's project.</b></li>
+    <li>Start the community's project.....</li>
+  </ul>
+
+  <h3>Pending tasks:</h3>
+  <ul>
+    <li><b>OO's blog post.</b></li>
+    <li>OO asked you to create a blog post for him, make sure you make research on how it works and create one to be sent to him.</li>
+  </ul>
+
+  <p>Please make sure to complete all of these tasks as soon as possible. If you have any questions, please don't hesitate to contact me.</p>
+
+  <p>Thanks,</p>
+  <p>Your friendly reminder</p>
+</body>
+</html>
+```
+
+
+
