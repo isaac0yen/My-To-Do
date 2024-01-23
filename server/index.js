@@ -73,7 +73,6 @@ const Process = async () => {
     2. The first array contains things that should be done for that particular day thile the second one contains things that have not been done for a long time. make sure you have all the details on the mail so that the user is informed of everything and use color codes well besed on the events
     3. The values of the contents should be parsed and formatted accordingly. use lists when needed and emphasize on words when needed. use your genius in UIUX to achieve this goal.
     4. whatever font and color you should be professional.
-    5. if the array is empty then don't include anything there.
   
   
     An example is below 
